@@ -1,19 +1,16 @@
 <template>
   <header>
-    <Navbar />
+    <!-- <Navbar /> -->
   </header>
-  <main>
+  <main class="fullscreen-bg">
     <router-view />
   </main>
-   <footer class="bg-dark text-light">
-    Made with 💖 by CodeWorks
-  </footer>
 </template>
 
 <script>
 import { computed } from 'vue'
 import { AppState } from './AppState'
-import Navbar from './components/Navbar.vue'
+// import Navbar from './components/Navbar.vue'
 
 export default {
   setup() {
@@ -21,16 +18,26 @@ export default {
       appState: computed(() => AppState)
     }
   },
-  components: { Navbar }
+  // components: { Navbar }
 }
 </script>
+
 <style lang="scss">
 @import "./assets/scss/main.scss";
 
-:root{
+:root {
   --main-height: calc(100vh - 32px - 64px);
 }
 
+.fullscreen-bg {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url('./assets/img/bg2.gif') no-repeat center center fixed;
+  background-size: cover;
+}
 
 footer {
   display: grid;

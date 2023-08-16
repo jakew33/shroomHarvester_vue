@@ -1,6 +1,4 @@
 import { AppState } from "../AppState.js"
-
-
 class ShroomsService {
   harvestShrooms() {
     AppState.shrooms++

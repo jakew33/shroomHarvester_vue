@@ -1,41 +1,42 @@
 <template>
-  <div class="home flex-grow-1 d-flex flex-column align-items-center justify-content-center">
-    <div class="home-card p-5 bg-white rounded elevation-3">
-      <img src="https://bcw.blob.core.windows.net/public/img/8600856373152463" alt="CodeWorks Logo"
-        class="rounded-circle">
-      <h1 class="my-5 bg-dark text-white p-3 rounded text-center">
-        Vue 3 Starter
-      </h1>
+  <div class="container-fluid">
+    <div class="row">
+
+      <ShroomComponent />
+
+      <div class="col-12 text-center fs-2">
+        <span>
+          Harvest Power: {{ harvestPower }}
+        </span>
+
+        <span v-if="autoHarvest > 0">
+          Auto Harvest: {{ autoHarvest }}
+        </span>
+
+        <div v-for="upgrade in upgrades" :key="upgrade.name" class="col-6 mb-3">
+          <h2>{{ upgrade.name.toUpperCase() }} || Multiplier: {{ upgrade.muliplier }}</h2>
+          <h3>Qty: {{ upgrade.quantity }}</h3>
+          <h3>${{ upgrade.price }}</h3>
+
+          <button @click="buyUpgrade(upgrade)" class="btn" :disabled="shrooms < upgrade.price"
+            :class="{ 'btn-success': upgrade.isTypeClick, 'btn-info': !upgrade.isTypeClick, 'fw-bold': upgrade.price > 10 }">Buy
+            Upgrade
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import ShroomComponent from "../components/ShroomComponent.vue.js";
+
 export default {
   setup() {
-    return {}
-  }
+    return {};
+  },
+  components: { ShroomComponent }
 }
 </script>
 
-<style scoped lang="scss">
-.home {
-  display: grid;
-  height: 80vh;
-  place-content: center;
-  text-align: center;
-  user-select: none;
-
-  .home-card {
-    width: 50vw;
-
-    >img {
-      height: 200px;
-      max-width: 200px;
-      width: 100%;
-      object-fit: contain;
-      object-position: center;
-    }
-  }
-}
-</style>
+<style scoped lang="scss"></style>

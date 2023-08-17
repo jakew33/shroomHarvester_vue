@@ -3,10 +3,10 @@
     <div class="clearfix">
       <div v-for="upgrade in upgrades" :key="upgrade.name" class="box col-md-3" style="background-color:#bbb"
         img="../assets/img/wood.png">
-        <h3>{{ upgrade.name.toUpperCase() }} || Multiplier: {{ upgrade.muliplier }}</h3>
+        <h3>{{ upgrade.name.toUpperCase() }} || Multiplier: {{ upgrade.multiplier }}</h3>
         <h4>Qty: {{ upgrade.quantity }}</h4>
         <h5>${{ upgrade.price }}</h5>
-        <img :src="upgrade.image" alt="Upgrade Image" style="max-height: 100px;">
+        <img :src="upgrade.image" alt="Fuuuck" style="max-height: 100px;">
 
         <button @click="buyUpgrade(upgrade)" class="btn" :disabled="shrooms < upgrade.price"
           :class="{ 'btn-success': upgrade.isTypeClick, 'btn-info': !upgrade.isTypeClick, 'fw-bold': upgrade.price > 10 }">Buy
@@ -81,9 +81,9 @@ export default {
   padding: 50px;
 }
 
-// .clearfix::after {
-//   content: "";
-//   clear: both;
-//   display: table;
-// }
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
 </style>

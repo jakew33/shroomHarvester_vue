@@ -1,10 +1,12 @@
 <template>
   <div class="col-md-12">
     <div class="clearfix">
-      <div v-for="upgrade in upgrades" :key="upgrade.name" class="box" style="background-color:#bbb">
-        <h4>{{ u3pgrade.name.toUpperCase() }} || Multiplier: {{ upgrade.muliplier }}</h4>
+      <div v-for="upgrade in upgrades" :key="upgrade.name" class="box col-md-3" style="background-color:#bbb"
+        img="../assets/img/wood.png">
+        <h3>{{ upgrade.name.toUpperCase() }} || Multiplier: {{ upgrade.muliplier }}</h3>
         <h4>Qty: {{ upgrade.quantity }}</h4>
         <h5>${{ upgrade.price }}</h5>
+        <img :src="upgrade.image" alt="Upgrade Image" style="max-height: 100px;">
 
         <button @click="buyUpgrade(upgrade)" class="btn" :disabled="shrooms < upgrade.price"
           :class="{ 'btn-success': upgrade.isTypeClick, 'btn-info': !upgrade.isTypeClick, 'fw-bold': upgrade.price > 10 }">Buy
@@ -27,11 +29,12 @@
 
 
 <script>
-import { AppState } from '../AppState';
-import { computed, reactive, onMounted } from 'vue';
+
+import { computed } from 'vue';
 import { logger } from "../utils/Logger.js";
 import Pop from "../utils/Pop.js";
 import { shroomsService } from "../services/ShroomsService.js";
+import { AppState } from "../AppState.js";
 export default {
   setup() {
     return {
@@ -78,9 +81,9 @@ export default {
   padding: 50px;
 }
 
-.clearfix::after {
-  content: "";
-  clear: both;
-  display: table;
-}
+// .clearfix::after {
+//   content: "";
+//   clear: both;
+//   display: table;
+// }
 </style>

@@ -6,7 +6,7 @@
         <h3>{{ upgrade.name.toUpperCase() }} || Multiplier: {{ upgrade.multiplier }}</h3>
         <h4>Qty: {{ upgrade.quantity }}</h4>
         <h5>${{ upgrade.price }}</h5>
-        <img :src="upgrade.image" alt="Fuuuck" style="max-height: 100px;">
+        <img :src="upgrade.image" alt="Fuuuck" style="max-height: 200px;">
 
         <button @click="buyUpgrade(upgrade)" class="btn" :disabled="shrooms < upgrade.price"
           :class="{ 'btn-success': upgrade.isTypeClick, 'btn-info': !upgrade.isTypeClick, 'fw-bold': upgrade.price > 10 }">Buy

@@ -2,6 +2,7 @@
   <div class="container-fluid">
     <UpgradeMenuComponent />
   </div>
+  Mushroom Harvester
   <ShroomComponent />
 </template>
 
